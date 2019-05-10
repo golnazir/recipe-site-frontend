@@ -1,0 +1,14 @@
+<div>
+
+    <ng-container *ngFor="let category of categories">
+      <ul>
+        <li >
+          <a routerLink= "/recipes-list/{{category.category}}">
+            <span class="category-link">{{category.title}} </span>
+          </a>
+        </li>
+      </ul>
+    </ng-container>
+  
+  </div>
+  

@@ -1,0 +1,11 @@
+
+.category-link{
+
+    font-size: 35px;
+    color:blue;
+    text-decoration: underline;
+}
+
+.category-link:hover{
+    color: darkslateblue;
+}

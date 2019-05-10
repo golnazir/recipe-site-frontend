@@ -1,0 +1,16 @@
+
+<div class="selected-recipe" *ngIf="oneRecipe">
+  
+    <h3>{{oneRecipe.title | uppercase}}</h3>
+    <div class="ingredients">
+      <h3>Ingredients:</h3>
+      <p style="white-space: pre;">{{oneRecipe.ingredients }} </p> 
+    </div>
+    <div class="Instructions">
+      <h3>Instructions:</h3>
+      <p>{{oneRecipe.instructions}}</p>
+    </div>
+
+    <button (click)="goBackToRec()">Go  to Recipes</button>
+  
+  </div>

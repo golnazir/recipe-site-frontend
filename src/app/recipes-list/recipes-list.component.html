@@ -1,0 +1,14 @@
+<div *ngIf = "category">
+
+  <h1>{{category.title}}</h1>
+  
+  <ng-container *ngFor= "let r of allRecipes">
+    <ul>
+      <li *ngIf= "r.category == category.category" 
+        routerLink = '/recipe-details/{{r.id}}'>
+        <span class="recipe-title">{{r.title}} </span>
+      </li>
+    </ul>
+  </ng-container>
+  <button (click)="goBackToCat()">Go to Categories</button>
+</div>
