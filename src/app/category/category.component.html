@@ -1,10 +1,10 @@
 <div>
-
+  <h1>Categories:</h1>
     <ng-container *ngFor="let category of categories">
       <ul>
         <li >
           <a routerLink= "/recipes-list/{{category.category}}">
-            <span class="category-link">{{category.title}} </span>
+            <span class="link">{{category.title}} </span>
           </a>
         </li>
       </ul>

@@ -1,0 +1,33 @@
+
+.ac-category {
+  background: rgba(250, 250, 250, 0.8);
+  /* background: rgba(58, 56, 56, 0.205); */
+} 
+  /* display: flex; */
+  /* justify-content: space-between;
+  align-items: flex-start; */
+  /* color: #fefefe; */
+
+
+
+/* CONTACT & FOOTER
+--------------------*/
+.ac-contact {
+  background: #111111;
+  color: #fefefe;
+  text-align: center;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.ac-social a {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  background: #fefefe;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+  
