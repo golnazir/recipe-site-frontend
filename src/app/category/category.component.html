@@ -1,4 +1,4 @@
-<div>
+<div *ngIf = "categories$ | async as categories">
   <h1>Categories:</h1>
     <ng-container *ngFor="let category of categories">
       <ul>
@@ -6,9 +6,9 @@
           <a routerLink= "/recipes-list/{{category.category}}">
             <span class="link">{{category.title}} </span>
           </a>
-        </li>
+        </li> 
       </ul>
     </ng-container>
-  
+   
   </div>
   

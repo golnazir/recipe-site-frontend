@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {RecipeService} from '../recipe.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import { Observable } from 'rxjs';
 
 import { Recipe} from '../recipe';
 import {Category} from '../category';
@@ -14,8 +15,10 @@ import {Category} from '../category';
 })
 export class RecipesListComponent implements OnInit {
 
-  category: Category;
-  allRecipes: Recipe[];
+  category$: Observable<Category>;
+  allRecipes$: Observable<Recipe[]>;
+  // category: Category;
+  // allRecipes: Recipe[];
 
   constructor(private recService: RecipeService,
       private activatedRoute: ActivatedRoute,
@@ -24,19 +27,17 @@ export class RecipesListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllRecipes();
-    this.getCategory();
+    // this.getCategory();
   }
 
   getAllRecipes(): void{
     const cat = this.activatedRoute.snapshot.paramMap.get('category');
-    this.recService.getRecipes(cat)
-      .subscribe(r => this.allRecipes =r);
+    this.allRecipes$ = this.recService.getRecipes(cat);
+    
   }
 
   getCategory(): void{
-    const cat = this.activatedRoute.snapshot.paramMap.get('category');
-    this.recService.getCategory(cat)
-      .subscribe(c => this.category = c);
+   
   }
 
   goBackToCat(): void{

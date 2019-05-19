@@ -1,38 +1,43 @@
 import { Injectable } from '@angular/core';
 import {Observable , of} from 'rxjs';
+import { filter , mergeMap, tap} from 'rxjs/operators';
 
 import { Recipe} from './recipe';
 import { RECIPES} from './mock-recipes';
 import {Category} from './category';
 import {CATEGORIES} from './mock-categories';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
   
-  getRecipes(cat: string):Observable<Recipe[]>{
-    return of(RECIPES.filter((rec => rec.category === cat )));
-  }
-  
-  getRecipeDetails(id: number): Observable<Recipe> {
-    return of(RECIPES.find(oneRec => oneRec.id === id));
-  }
-
   getCategories():Observable<Category[]>{
-    return of(CATEGORIES);
+    // const url =  'http://127.0.0.1:5000/api/category';
+    const turl = '/api/category';
+    return this.http.get<Category[]>(turl);
   }
 
-  getCategory(cat:string): Observable<Category> {
-    return of(CATEGORIES.find(oneCat => oneCat.category === cat));
+  getRecipes(cat:string): Observable<Recipe[]> {
+    // const url = `${"http://127.0.0.1:5000/api/recipes-list"}/${cat}`;
+    const turl = `${"/api/recipes-list"}/${cat}`;
+    return this.http.get<Recipe[]>(turl);   
   }
 
-  // isCategoryMatch()
-  // function isBigEnough(element, index, array) { 
-  //   return (element >= 10); 
-//  } 
+  getRecipeDetails(id: number): Observable<Recipe> {
+      // const url = `${"http://127.0.0.1:5000/api/recipe-details"}/${id}`;
+      const turl = `${"/api/recipe-details"}/${id}`;
+      return this.http.get<Recipe>(turl);
+  }
 
+  // getCategory(cat: string):Observable<Category>{
+    // const url = `${"http://127.0.0.1:5000/api/recipes-list"}/${cat}`;
+    // return this.http.get<Category>(url);
+    // // return of(RECIPES.filter((rec => rec.category === cat )));
+  // }
+  
 
 }

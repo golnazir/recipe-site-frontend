@@ -4,6 +4,7 @@ import {Recipe} from '../recipe';
 import {RecipeService} from '../recipe.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -12,7 +13,10 @@ import {Location} from '@angular/common';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  oneRecipe:Recipe;
+  // @Input() 
+  // oneRecipe:Recipe;
+  
+  oneRecipe$ :Observable<Recipe>;
 
   constructor(private recService: RecipeService,
       private activatedRoute: ActivatedRoute,
@@ -20,13 +24,22 @@ export class RecipeDetailComponent implements OnInit {
       ) { }
 
   ngOnInit() {
+    // this.oneRecipe$ = this.recService.getRecipeDetails(1);
+
     this.getRecipeDetails();
   }
 
   getRecipeDetails(): void{
     const id = +this.activatedRoute.snapshot.paramMap.get('id');
-    this.recService.getRecipeDetails(id)
-      .subscribe(oneRec => this.oneRecipe = oneRec);
+    console.log("** id = ", id);
+    this.oneRecipe$ = this.recService.getRecipeDetails(id);
+    
+    
+    // this.recService.getRecipeDetails(id)
+    //   .subscribe(oneRec => console.log(oneRec));
+    //   this.oneRecipe = oneRec
+    // console.log(this.oneRecipe);
+
   }
 
   goBackToRec(): void{
