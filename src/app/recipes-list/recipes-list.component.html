@@ -1,20 +1,19 @@
-<!-- <div *ngIf = "category" ></div> -->
+<div *ngIf = "category$ | async as category" >
+  <ng-container *ngFor= "let cat of category">
+    <h1>{{cat.title}}</h1>
+  </ng-container>
+</div>
+
 <div *ngIf = "allRecipes$ | async as allRecipes">
 
-  <!-- <ng-container *ngFor= "let category of categories"> -->
-    <!-- <h1>{{category.title}}</h1> -->
-    
     <ng-container *ngFor= "let r of allRecipes">
       <ul>
-        <!-- <li *ngIf= "r.category == category.category"  -->
         <li
           routerLink = '/recipe-details/{{r.id}}'>
           <span class="link">{{r.title}} </span>
         </li>
       </ul>
     </ng-container>
-  <!-- </ng-container> -->
-
 
   <button (click)="goBackToCat()">Go to Categories</button>
 </div>
