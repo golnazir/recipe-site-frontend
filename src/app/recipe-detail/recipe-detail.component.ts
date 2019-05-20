@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Recipe} from '../recipe';
 
 import {RecipeService} from '../recipe.service';
@@ -13,9 +13,6 @@ import { Observable } from 'rxjs';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  // @Input() 
-  // oneRecipe:Recipe;
-  
   oneRecipe$ :Observable<Recipe>;
 
   constructor(private recService: RecipeService,
@@ -24,22 +21,13 @@ export class RecipeDetailComponent implements OnInit {
       ) { }
 
   ngOnInit() {
-    // this.oneRecipe$ = this.recService.getRecipeDetails(1);
-
     this.getRecipeDetails();
   }
 
   getRecipeDetails(): void{
     const id = +this.activatedRoute.snapshot.paramMap.get('id');
     console.log("** id = ", id);
-    this.oneRecipe$ = this.recService.getRecipeDetails(id);
-    
-    
-    // this.recService.getRecipeDetails(id)
-    //   .subscribe(oneRec => console.log(oneRec));
-    //   this.oneRecipe = oneRec
-    // console.log(this.oneRecipe);
-
+    this.oneRecipe$ = this.recService.getRecipeDetails(id);  
   }
 
   goBackToRec(): void{

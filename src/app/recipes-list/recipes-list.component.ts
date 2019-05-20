@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {RecipeService} from '../recipe.service';
-import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { RecipeService} from '../recipe.service';
+import { ActivatedRoute} from '@angular/router';
+import { Location} from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { Recipe} from '../recipe';
-import {Category} from '../category';
+import { Category} from '../category';
 
 
 @Component({
@@ -31,10 +31,7 @@ export class RecipesListComponent implements OnInit {
   }
 
   getAllRecipes(): void{
-    // const cat = this.activatedRoute.snapshot.paramMap.get('category');
-    // console.log("category: ", this.category, " and cat: " , cat);
-    this.allRecipes$ = this.recService.getRecipes(this.category);
-    
+    this.allRecipes$ = this.recService.getRecipes(this.category);  
   }
 
   getCategory(): void{
