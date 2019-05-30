@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Easy and delicious recipes!';
+
+  breadcrumbConfig: object = {
+    bgColor: '#eee',
+    fontSize: '18px',
+    fontColor: '#0275d8',
+    lastLinkColor: '#000',
+    symbol: ' / ',
+  };
 }

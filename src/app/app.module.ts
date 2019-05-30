@@ -8,6 +8,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { CategoryComponent } from './category/category.component';
 
+import {Ng7DynamicBreadcrumbModule} from "ng7-dynamic-breadcrumb";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CategoryComponent } from './category/category.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng7DynamicBreadcrumbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

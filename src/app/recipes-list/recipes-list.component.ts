@@ -17,7 +17,7 @@ export class RecipesListComponent implements OnInit {
 
   category$: Observable<Category>;
   allRecipes$: Observable<Recipe[]>;
-  category:string;
+  theCategory:string;
 
   constructor(private recService: RecipeService,
       private activatedRoute: ActivatedRoute,
@@ -25,17 +25,17 @@ export class RecipesListComponent implements OnInit {
       ) { }
 
   ngOnInit() {
-    this.category = this.activatedRoute.snapshot.paramMap.get('category');
+    this.theCategory = this.activatedRoute.snapshot.paramMap.get('category');
     this.getAllRecipes();
     this.getCategory();
   }
 
   getAllRecipes(): void{
-    this.allRecipes$ = this.recService.getRecipes(this.category);  
+    this.allRecipes$ = this.recService.getRecipes(this.theCategory);  
   }
 
   getCategory(): void{
-   this.category$ = this.recService.getCategory(this.category);
+   this.category$ = this.recService.getCategory(this.theCategory);
   }
 
   goBackToCat(): void{
