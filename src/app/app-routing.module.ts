@@ -13,21 +13,21 @@ const allRoutes: Routes =[
       breadcrumb: [{label:'Category', url: ''}]
     }
   },
-  {path: 'category/recipes-list/:category', component:RecipesListComponent,
+  {path: 'category/:category', component:RecipesListComponent,
     data: {
       title: 'Recipes-list',
       breadcrumb:[
-        {label: 'Category', url: '/category'},
-        {label: 'Recipes-{{category}}', url: ''}
+        {label: 'Category ({{category}})', url: '/category'},
+        {label: 'Recipes', url: ''}
       ]
     },
   },
-  {path: 'category/recipes-list/:category/recipe-details/:id', component:RecipeDetailComponent,
+  {path: 'category/:category/instructions/:id', component:RecipeDetailComponent,
     data: {
       title: 'Recipe-details',
       breadcrumb:[
-        {label: 'Category', url: '/category'},
-        {label: 'Recipes', url: '/category/recipes-list/:category'},
+        {label: 'Category-{{category}}', url: '/category'},
+        {label: 'Recipes', url: '/category/:category'},
         {label: 'Instructions', url: ''}
       ]
     },
@@ -41,9 +41,9 @@ const allRoutes: Routes =[
 })
 
 export class AppRoutingModule { 
-  static components = [
-    CategoryComponent,
-    RecipesListComponent,
-    RecipeDetailComponent
-];
+  // static components = [
+  //   CategoryComponent,
+  //   RecipesListComponent,
+  //   RecipeDetailComponent
+  // ];
 }

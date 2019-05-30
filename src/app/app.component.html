@@ -4,11 +4,16 @@
     <!-- </div> -->
 </header>
 
-<!-- <section class="ac-category"> -->
 <section>
-<app-ng7-dynamic-breadcrumb></app-ng7-dynamic-breadcrumb>
-<router-outlet></router-outlet>
+    <app-ng7-dynamic-breadcrumb 
+        [bgColor]="breadcrumbConfig['bgColor']" 
+        [fontSize]="breadcrumbConfig['fontSize']" 
+        [fontColor]="breadcrumbConfig['fontColor']" 
+        [lastLinkColor]="breadcrumbConfig['lastLinkColor']" 
+        [symbol]="breadcrumbConfig['symbol']">
+    </app-ng7-dynamic-breadcrumb>
 </section>
+<section class="router" ><router-outlet></router-outlet></section>
 
 <!-- CONTACT INFO -->
 <footer class="ac-contact">

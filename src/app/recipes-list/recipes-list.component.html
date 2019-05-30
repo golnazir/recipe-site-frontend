@@ -3,33 +3,16 @@
     <h1>{{cat.title}}</h1>
 
     <div *ngIf = "allRecipes$ | async as allRecipes">
-
       <ng-container *ngFor= "let r of allRecipes">
         <ul>
           <li
-            routerLink = '/category/recipes-list/{{cat.category}}/recipe-details/{{r.id}}'>
+            routerLink = '/category/{{cat.category}}/instructions/{{r.id}}'>
             <span class="link">{{r.title}} </span>
           </li>
         </ul>
       </ng-container>
-  
-    <button (click)="goBackToCat()">Go to Categories</button>
-  </div>
+    </div>
   
 
   </ng-container>
 </div>
-
-<!-- <div *ngIf = "allRecipes$ | async as allRecipes">
-
-    <ng-container *ngFor= "let r of allRecipes">
-      <ul>
-        <li
-          routerLink = '/category/recipes-list/recipe-details/{{r.id}}'>
-          <span class="link">{{r.title}} </span>
-        </li>
-      </ul>
-    </ng-container>
-
-  <button (click)="goBackToCat()">Go to Categories</button>
-</div> -->
